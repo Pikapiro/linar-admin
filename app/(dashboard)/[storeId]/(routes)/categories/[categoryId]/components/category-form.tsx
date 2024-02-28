@@ -22,12 +22,11 @@ import {
 } from "@/components/ui/form"
 import { Heading } from "@/components/ui/heading"
 import { Input } from "@/components/ui/input"
-import { Select, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Separator } from "@/components/ui/separator"
 
 const formSchema = z.object({
   name: z.string().min(2),
-  billboardId: z.string().min(1),
+  // billboardId: z.string().min(1),
 });
 
 type CategoryFormValues = z.infer<typeof formSchema>
@@ -56,7 +55,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
     resolver: zodResolver(formSchema),
     defaultValues: initialData || {
       name: '',
-   
+
     }
   });
 
@@ -131,7 +130,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
                 </FormItem>
               )}
             />
-            <FormField
+            {/* <FormField
               control={form.control}
               name="billboardId"
               render={({ field }) => (
@@ -143,16 +142,16 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
                         <SelectValue defaultValue={field.value} placeholder="Select a billboard" />
                       </SelectTrigger>
                     </FormControl>
-                    {/* <SelectContent>
+                    <SelectContent>
                       {billboards.map((billboard) => (
                         <SelectItem key={billboard.id} value={billboard.id}>{billboard.label}</SelectItem>
                       ))}
-                    </SelectContent> */}
+                    </SelectContent>
                   </Select>
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
           </div>
           <Button disabled={loading} className="ml-auto" type="submit">
             {action}
